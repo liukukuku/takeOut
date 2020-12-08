@@ -1,0 +1,4 @@
+const GETENTRYURL = "GETENTRYURL"
+export {
+    GETENTRYURL,
+}
