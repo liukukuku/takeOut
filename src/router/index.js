@@ -5,13 +5,14 @@ import {
   Route,
   Redirect,
 } from "react-router-dom";
-import { My, Order, Search, Takeout } from "@/router/componens";
+import { My, Order, Search, Takeout, Restaurants, } from "@/router/componens";
 
 export default function Router() {
   return (
     <BrowserRouter>
       <Switch>
         <Route path="/takeout" component={Takeout}></Route>
+        <Route path="/restaurants/:id" component={Restaurants}></Route>
         <Route path="/search" component={Search}></Route>
         <Route path="/order" component={Order}></Route>
         <Route path="/my" component={My}></Route>
