@@ -1,0 +1,35 @@
+.swiper-slide {
+    width: 100%;
+
+    dl {
+        flex: none;
+        width: 25%;
+        float: left;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+
+        dt {
+            width: 70%;
+            padding: 0.2rem;
+            box-sizing: border-box;
+        }
+    }
+
+    img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    .swiper-container {
+        --swiper-theme-color: #ff6600;
+        --swiper-pagination-color: #00ff33;
+        /* 两种都可以 */
+    }
+    
+}
+.swiper-pagination-fraction, .swiper-pagination-custom, .swiper-container-horizontal > .swiper-pagination-bullets{
+    bottom: -5px !important;
+}

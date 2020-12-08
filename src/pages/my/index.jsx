@@ -1,12 +1,14 @@
-import React from 'react'
-import FootRoute from '@/components/FootRoute'
+import React from "react";
+import FootRoute from "@/components/FootRoute";
+import HeadTitle from "@/components/HeadTitle";
 function Index() {
-    return (
-        <div>
-            我的
-            <FootRoute/>
-        </div>
-    )
+  return (
+    <div>
+      <HeadTitle></HeadTitle>
+      <section>我的</section>
+      <FootRoute />
+    </div>
+  );
 }
 
-export default Index
+export default Index;
