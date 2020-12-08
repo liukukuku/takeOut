@@ -1,8 +1,9 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import './style.less'
 function Index() {
   return (
-    <div>
+    <div className="footeNav">
       <NavLink to="/takeout">
         <dl>
           <dt></dt>
