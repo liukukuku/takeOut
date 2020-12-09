@@ -1,4 +1,5 @@
 import React from 'react'
+import HeadTitle from "@/components/HeadTitle";
 
 function Index() {
     return (

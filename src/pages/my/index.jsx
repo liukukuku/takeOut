@@ -1,7 +1,7 @@
 import React from "react";
 import FootRoute from "@/components/FootRoute";
 import HeadTitle from "@/components/HeadTitle";
-import "@/pages/my/styles.less"
+import "@/pages/my/styles.less";
 
 
 function Index(props) {
