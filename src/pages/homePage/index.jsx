@@ -43,7 +43,12 @@ function HomePage(props) {
   }, []);
   return (
     <div className="wrap">
+      <header>
+
       <HeadTitle />
+      </header>
+      <section>
+
       <div className="home_city_guess">
         <p>当前定位城市</p>
         <p>定位不准时，请在城市列表选择</p>
@@ -76,6 +81,7 @@ function HomePage(props) {
             );
           })}
       </div>
+      </section>
     </div>
   );
 }
