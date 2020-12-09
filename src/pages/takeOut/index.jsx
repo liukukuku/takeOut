@@ -9,8 +9,6 @@ function Index() {
       <HeadTitle></HeadTitle>
       <section>
       <Swiper></Swiper>
-      <Button type="primary">111</Button>
-      
       </section>
       <FootRoute />
     </div>

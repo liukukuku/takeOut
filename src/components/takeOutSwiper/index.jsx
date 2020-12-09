@@ -41,7 +41,6 @@ export class index extends Component {
     const { obj } = this.state;
     return (
       <>
-      <Button type="primary">sss</Button>
         <div className="swiper-container">
         <div className="swiper-wrapper">
           {obj.map((m, p) => {

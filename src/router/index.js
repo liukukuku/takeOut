@@ -1,16 +1,7 @@
 import React from "react";
-<<<<<<< HEAD
-import {
-  BrowserRouter,
-  Switch,
-  Route,
-  Redirect,
-} from "react-router-dom";
-import { My, Order, Search, Takeout, HomePage } from "@/router/componens";
-=======
+
+import { My, Order, Search, Takeout, HomePage, Login  } from "@/router/componens";
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
-import { My, Order, Search, Takeout, Login } from "@/router/componens";
->>>>>>> ce1848b84f7e05e4a748f144a7ffde18cb32e56f
 
 export default function Router() {
   return (
