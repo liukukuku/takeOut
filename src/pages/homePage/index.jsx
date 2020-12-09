@@ -2,12 +2,13 @@ import { connect } from "react-redux";
 import React, { useEffect } from "react";
 import qs from "qs";
 import { HomePgs, HomePgs1, HomePgs2 } from "@/actions/homePg";
+import HeadTitle from "@/components/HeadTitle";
 
 import "./styles.less";
 
 export default connect(
   (state) => {
-    console.log(state);
+    // console.log(state);
     return {
       val: state.home.val,
       val1: state.home.val1,
@@ -40,12 +41,9 @@ function HomePage(props) {
     props.HomePgs1(str1);
     props.HomePgs2(str2);
   }, []);
-  // console.log(props.val)
-  // console.log(props.val1)
-  // console.log(props.val2)
-
   return (
     <div className="wrap">
+      <HeadTitle />
       <div className="home_city_guess">
         <p>当前定位城市</p>
         <p>定位不准时，请在城市列表选择</p>
@@ -70,13 +68,9 @@ function HomePage(props) {
               <div key={i}>
                 <p className="ying">{v.name}</p>
                 <div>
-                  {
-                    v.data.map((j,k) => {
-                      return (
-                        <p key={j.id}>{j.name}</p>
-                      )
-                    })
-                  }
+                  {v.data.map((j, k) => {
+                    return <p key={j.id}>{j.name}</p>;
+                  })}
                 </div>
               </div>
             );
