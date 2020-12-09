@@ -13,7 +13,7 @@ function SearchCity() {
           <button>提交</button>
       </div>
       <p>搜索历史</p>
-      <div>
+      <div className="city_jilu">
           123
       </div>
       <p className="nullfn">
