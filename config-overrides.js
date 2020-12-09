@@ -3,16 +3,20 @@ const {
   addLessLoader,
   fixBabelImports,
   override,
-  addDecoratorsLegacy
-} = require('customize-cra')
-const path = require('path')
+  addDecoratorsLegacy,
+} = require("customize-cra");
+const path = require("path");
 
 module.exports = override(
   // @ 修饰器
   addDecoratorsLegacy(),
-  fixBabelImports('import', {
-    libraryName: 'antd',
-    libraryDirectory: 'es',
+  fixBabelImports("antd", {
+    libraryName: "antd",
+    style: true,
+  }),
+  fixBabelImports("import", {
+    libraryName: "antd-mobile",
+    libraryDirectory: "es",
     // 支持 less sass stylus
     style: true,
   }),
@@ -23,9 +27,7 @@ module.exports = override(
   }),
   // 别名
   addWebpackAlias({
-    '@': path.resolve(__dirname, 'src'),
-    '@@': path.resolve(__dirname, 'src/components'),
-  }),
-)
-
-
+    "@": path.resolve(__dirname, "src"),
+    "@@": path.resolve(__dirname, "src/components"),
+  })
+);

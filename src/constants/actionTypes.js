@@ -1,3 +1,12 @@
+<<<<<<< HEAD
 export const HOME_PAGE_GUESS = "HOME_PAGE_GUESS"
 export const HOME_PAGE_HOT = "HOME_PAGE_HOT"
 export const HOME_PAGE_GROUP = "HOME_PAGE_GROUP"
+=======
+const GETENTRY = "GETENTRYURL"
+const RESTAURANTS = "RESTAURANTSURL"
+export {
+    GETENTRY,
+    RESTAURANTS,
+}
+>>>>>>> ce1848b84f7e05e4a748f144a7ffde18cb32e56f
