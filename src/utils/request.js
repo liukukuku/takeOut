@@ -1,7 +1,7 @@
 import axios from 'axios'
 import qs from 'qs'
 
-axios.defaults.withCredentials = true;
+// axios.defaults.withCredentials = true;
 // url 是请求的服务器地址
 // payload 参数
 export function post (url, payload = {}) {

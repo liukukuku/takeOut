@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import HeadTitle from "@/components/HeadTitle";
 import "@/pages/login/styles.less";
 import { Form, Input, Button } from "antd";
@@ -7,21 +7,21 @@ import { loginyzfun } from "@/actions/loginyz";
 import { loginfun } from "@/actions/login";
 
 function Index(props) {
-  const [count, setCount] = useState(0);
   const { obj } = props;
-  
+
   React.useEffect(() => {
-    props.loginyzfun()
-      .then(res => setCount(res.payload.data.code))
+    props.loginyzfun();
   }, []);
 
-  const yzfun = async () => {
-    let data = await props.loginyzfun()
+  const yzfun = () => {
+    props.loginyzfun();
   };
 
   const onFinish = (values) => {
-    console.log(values)
-    props.loginfun(values)
+    console.log(values);
+    props.loginfun(values).then(res=>{
+      props.history.push("/my")
+    })
   };
 
   const onFinishFailed = (errorInfo) => {
@@ -30,7 +30,6 @@ function Index(props) {
 
   return (
     <div className="loginbox">
-<img src={count} />
       <HeadTitle val={"密码登录"}></HeadTitle>
       <Form
         name="basic"
