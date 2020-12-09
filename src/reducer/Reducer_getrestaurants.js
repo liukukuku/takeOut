@@ -1,4 +1,4 @@
-import { GETENTRY } from "@/constants/actionTypes";
+import { RESTAURANTS } from "@/constants/actionTypes";
 import _ from 'lodash'
 const initialState = {
   data: [],
@@ -6,8 +6,7 @@ const initialState = {
 
 export default (state = initialState, { type, payload }) => {
   switch (type) {
-    case GETENTRY:
-
+    case RESTAURANTS:
       return { ...state,data: _.get(payload,"data",[])};
 
     default:
