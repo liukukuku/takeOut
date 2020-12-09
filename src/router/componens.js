@@ -5,6 +5,7 @@ const Search = Loadable(() => import('@/pages/search'))
 const Takeout = Loadable(() => import('@/pages/takeOut'))
 const HomePage = Loadable(() => import('@/pages/homePage'))
 const Login = Loadable(() => import('@/pages/login'))
+const SearchCity = Loadable(() => import('@/pages/searchCity'))
 
 export {
   My,
@@ -12,5 +13,6 @@ export {
   Search,
   Takeout,
   HomePage,
-  Login
+  Login,
+  SearchCity
 }

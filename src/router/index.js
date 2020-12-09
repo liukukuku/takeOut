@@ -1,12 +1,14 @@
 import React from "react";
 
-import { My, Order, Search, Takeout, HomePage, Login  } from "@/router/componens";
+import { My, Order, Search, Takeout, HomePage, Login,SearchCity  } from "@/router/componens";
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 
 export default function Router() {
   return (
     <BrowserRouter>
       <Switch>
+        {/* 搜索城市 */}
+      <Route path="/searchCity" component={SearchCity}></Route> 
         <Route path="/homePage" component={HomePage}></Route>
         <Route path="/takeout" component={Takeout}></Route>
         <Route path="/search" component={Search}></Route>
