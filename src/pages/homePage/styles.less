@@ -1,0 +1,89 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.24rem;
+  box-sizing: border-box;
+}
+body,html,#root{
+    width: 100%;
+    height: 100%;
+}
+.wrap{
+    height: 100%;
+    width: 100%;
+}
+.home_city_guess {
+  width: 94%;
+  flex: none;
+  height: 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 0.02rem solid #ccc;
+  padding: 0 0.2rem;
+  color: gray;
+}
+
+.home_city {
+  width: 100%;
+  height: 0.8rem;
+  display: flex;
+  flex: none;
+  align-items: center;
+  padding-left: 0.2rem;
+  border-bottom: 0.02rem solid #ccc;
+}
+
+.home_city_hot {
+  width: 100%;
+  p {
+    width: 100%;
+    height: 0.7rem;
+    display: flex;
+    align-items: center;
+    padding-left: 0.2rem;
+  }
+  div {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    p {
+      width: 25%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 0.01rem solid #ccc;
+      box-sizing: border-box;
+      color: #3190e8;
+    }
+  }
+}
+
+.home_city_group {
+  width: 100%;
+  div {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+   
+    div > p {
+      height: 0.7rem;
+      width: 25%;
+      text-align: center;
+      line-height: 0.7rem;
+      border: 0.01rem solid #ccc;
+      box-sizing: border-box;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      color: gray;
+    }
+  }
+}
+.ying{
+    width: 100%;
+    padding: 0.1rem 0;
+    padding-left: 0.2rem;
+    border-top: 0.28rem solid #eee;
+}

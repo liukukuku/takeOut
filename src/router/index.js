@@ -5,12 +5,13 @@ import {
   Route,
   Redirect,
 } from "react-router-dom";
-import { My, Order, Search, Takeout } from "@/router/componens";
+import { My, Order, Search, Takeout, HomePage } from "@/router/componens";
 
 export default function Router() {
   return (
     <BrowserRouter>
       <Switch>
+        <Route path="/homePage" component={HomePage}></Route>
         <Route path="/takeout" component={Takeout}></Route>
         <Route path="/search" component={Search}></Route>
         <Route path="/order" component={Order}></Route>
