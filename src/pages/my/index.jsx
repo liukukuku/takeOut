@@ -5,7 +5,6 @@ import "@/pages/my/styles.less";
 
 function Index(props) {
   const loginfun = () => {
-    console.log(1);
     props.history.push("/login");
   };
 
