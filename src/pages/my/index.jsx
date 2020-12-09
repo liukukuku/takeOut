@@ -3,39 +3,49 @@ import FootRoute from "@/components/FootRoute";
 import HeadTitle from "@/components/HeadTitle";
 import "@/pages/my/styles.less";
 
-
 function Index(props) {
-
-  const loginfun=()=>{
-    console.log(1)
-    props.history.push("/login")
-  }
+  const loginfun = () => {
+    props.history.push("/login");
+  };
 
   return (
     <div>
-      <HeadTitle></HeadTitle>
+      <HeadTitle val={"我的"}></HeadTitle>
       <section>
-        <div className="wy-box" onClick={()=>{loginfun()}}>
-          <div><img src="" alt=""/></div>
+        <div
+          className="wy-box"
+          onClick={() => {
+            loginfun();
+          }}
+        >
+          <div>
+            <img src="" alt="" />
+          </div>
           <div>
             <p>登陆/注册</p>
-            <p><span className="iconfont icon-phone"></span>暂无绑定手机号</p>
+            <p>
+              <span className="iconfont icon-phone"></span>暂无绑定手机号
+            </p>
           </div>
-          <div className="iconfont icon-jiantouyou">
-            
-          </div>
+          <div className="iconfont icon-jiantouyou"></div>
         </div>
         <div className="wy-top">
           <div className="wy-top-div1">
-            <p><span>0.00</span>元</p>
+            <p>
+              <span>0.00</span>元
+            </p>
             <p className="clorgray">我的余额</p>
           </div>
           <div className="wy-top-div2">
-            <p><span>3</span>个</p>
+            <p>
+              <span>3</span>个
+            </p>
             <p className="clorgray">我的优惠</p>
           </div>
           <div className="wy-top-div3">
-            <p><span>0</span>分</p>
+            <p>
+              <span>0</span>分
+            </p>
             <p className="clorgray">我的积分</p>
           </div>
         </div>

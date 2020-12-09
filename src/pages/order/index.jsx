@@ -4,7 +4,7 @@ import HeadTitle from "@/components/HeadTitle";
 function Index() {
   return (
     <div>
-      <HeadTitle></HeadTitle>
+      <HeadTitle val={"订单"}></HeadTitle>
       <section>订单</section>
       <FootRoute />
     </div>
