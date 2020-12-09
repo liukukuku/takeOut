@@ -11,7 +11,7 @@ function Index(props) {
 
   return (
     <div>
-      <HeadTitle></HeadTitle>
+      <HeadTitle val={"我的"}></HeadTitle>
       <section>
         <div
           className="wy-box"
