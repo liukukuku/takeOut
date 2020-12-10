@@ -1,14 +1,15 @@
 import React from "react";
 import HeadTitle from "@/components/HeadTitle";
-import "./styles.less";
-import { Form, Input, Button, } from "antd";
-import "@/pages/login/styles.less";
 import { connect } from "react-redux";
 import { loginyzfun } from "@/actions/loginyz";
-import { loginfun } from "@/actions/login";
+import { changepassfun } from "@/actions/changepassword";
+import { Form, Input, Button ,Modal} from "antd";
+import "@/pages/changepassword/styles.less";
 
 function Index(props) {
   const { obj } = props;
+  const [Tips, setTips] = React.useState("");
+  const [isModalVisible, setIsModalVisible] = React.useState(false);
 
   React.useEffect(() => {
     props.loginyzfun();
@@ -19,18 +20,42 @@ function Index(props) {
   };
 
   const onFinish = (values) => {
-    props.loginfun(values).then((res) => {
-      props.history.push("/my");
-    });
+    props.changepassfun(values).then(res=>{
+        if(res.payload.data.success==="密码修改成功"){
+            props.history.push("/myuser")
+        }else{
+            setIsModalVisible(true);
+            setTips("密码修改失败");
+        }
+    })
   };
 
   const onFinishFailed = (errorInfo) => {
     console.log("Failed:", errorInfo);
   };
 
+  const handleOk = () => {
+    setIsModalVisible(false);
+  };
+
+  const handleCancel = () => {
+    setIsModalVisible(false);
+  };
+
   return (
-    <div className="loginbox">
-      <HeadTitle val={"密码登录"}></HeadTitle>
+    <div>
+      <HeadTitle val={"重置密码"}></HeadTitle>
+      <Modal
+        maskClosable={false}
+        cancelText="取消"
+        okText="确定"
+        closable={false}
+        visible={isModalVisible}
+        onOk={handleOk}
+        onCancel={handleCancel}
+      >
+        <p>{Tips}</p>
+      </Modal>
       <Form
         name="basic"
         initialValues={{
@@ -52,15 +77,39 @@ function Index(props) {
         </Form.Item>
 
         <Form.Item
-          name="password"
+          name="oldpassWord"
           rules={[
             {
               required: true,
-              message: "密码不能为空!",
+              message: "旧密码不能为空!",
             },
           ]}
         >
-          <Input.Password placeholder="密码" />
+          <Input placeholder="旧密码" />
+        </Form.Item>
+
+        <Form.Item
+          name="newpassword"
+          rules={[
+            {
+              required: true,
+              message: "新密码不能为空!",
+            },
+          ]}
+        >
+          <Input placeholder="请输入新密码" />
+        </Form.Item>
+
+        <Form.Item
+          name="confirmpassword"
+          rules={[
+            {
+              required: true,
+              message: "确认密码不能为空!",
+            },
+          ]}
+        >
+          <Input placeholder="请确认密码" />
         </Form.Item>
 
         <Form.Item
@@ -89,13 +138,9 @@ function Index(props) {
           </div>
         </Form.Item>
 
-        <div className="divstyle">
-          温馨提示：未注册过的账号，登陆时将自动注册注册过的用户可凭账号密码登陆
-        </div>
-
         <Form.Item>
           <Button className="loginbutton" type="primary" htmlType="submit">
-            登陆
+            确认修改
           </Button>
         </Form.Item>
       </Form>
@@ -109,6 +154,6 @@ export default connect(
   },
   {
     loginyzfun,
-    loginfun,
+    changepassfun,
   }
 )(Index);

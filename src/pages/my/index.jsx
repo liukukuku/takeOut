@@ -2,11 +2,34 @@ import React from "react";
 import FootRoute from "@/components/FootRoute";
 import HeadTitle from "@/components/HeadTitle";
 import "./styles.less";
+import "@/pages/my/styles.less";
+import { connect } from "react-redux";
 
 function Index(props) {
+  const { user } = props;
+  const [str, setstr] = React.useState("登陆/注册");
+
+  React.useEffect(() => {
+    if (
+      localStorage.getItem("user_id") &&
+      user.username !== undefined &&
+      localStorage.getItem("modify")
+    ) {
+      let a = localStorage.getItem("modify");
+      setstr(a);
+    } else if (localStorage.getItem("user_id") && user.username !== undefined) {
+      setstr(user.username);
+    } else {
+      setstr("登陆/注册");
+    }
+  }, []);
+
   const loginfun = () => {
-    console.log(1);
-    props.history.push("/login");
+    if (user.username !== undefined) {
+      props.history.push("/myuser");
+    } else {
+      props.history.push("/login");
+    }
   };
 
   return (
@@ -23,7 +46,7 @@ function Index(props) {
             <img src="" alt="" />
           </div>
           <div>
-            <p>登陆/注册</p>
+            <p>{str}</p>
             <p>
               <span className="iconfont icon-phone"></span>暂无绑定手机号
             </p>
@@ -95,4 +118,6 @@ function Index(props) {
   );
 }
 
-export default Index;
+export default connect((state) => {
+  return { user: state.Login.user };
+}, {})(Index);

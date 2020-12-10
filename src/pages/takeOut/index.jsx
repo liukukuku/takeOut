@@ -4,7 +4,8 @@ import FootRoute from "@/components/FootRoute";
 import Swiper from "@/components/TakeOutSwiper";
 import NearbyMerchant from "@/components/NearbyMerchant";
 import './styles.less'
-function Index() {
+
+function Index(props) {
   return (
     <div>
       <HeadTitle></HeadTitle>
