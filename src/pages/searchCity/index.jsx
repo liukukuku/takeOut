@@ -76,7 +76,7 @@ function SearchCity(props) {
 
     localStorage.setItem("arr", JSON.stringify(brr));
     // console.log(val)
-    props.ListAddress("geohash="+val.geohash)
+    props.ListAddress(val)
     props.history.push("/takeout?");
   };
 
