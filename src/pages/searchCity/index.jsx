@@ -65,16 +65,15 @@ function SearchCity(props) {
       // 取上一次值
       arr = JSON.parse(localStorage.getItem("arr"));
     }
-
     // push点击数据
-
     let brr = arr.filter(v=>{
       return v.name !== val.name
     })
     brr.push(val)
 
     localStorage.setItem("arr", JSON.stringify(brr));
-    props.history.push("/takeout");
+    // console.log(val)
+    props.history.push("/takeout?geohash="+val.geohash);
   };
 
   // 清空历史记录
