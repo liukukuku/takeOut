@@ -4,6 +4,8 @@ import "./styles.less";
 
 import { SearchMes } from "@/actions/Urban_information_H";
 import { SearchAdd } from "@/actions/searchAddress_H";
+import { ListAddress } from "@/actions/list_address_H";
+
 
 export default connect(
   (state) => {
@@ -16,6 +18,7 @@ export default connect(
   {
     SearchMes,
     SearchAdd,
+    ListAddress
   }
 )(SearchCity);
 
@@ -73,7 +76,8 @@ function SearchCity(props) {
 
     localStorage.setItem("arr", JSON.stringify(brr));
     // console.log(val)
-    props.history.push("/takeout?geohash="+val.geohash);
+    props.ListAddress("geohash="+val.geohash)
+    props.history.push("/takeout?");
   };
 
   // 清空历史记录
