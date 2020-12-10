@@ -5,6 +5,8 @@ const HOME_PAGE_HOT = "HOME_PAGE_HOT"
 const HOME_PAGE_GROUP = "HOME_PAGE_GROUP"
 const CITY_SEARCH_MESSAGE = "CITY_SEARCH_MESSAGE"
 const CITY_SEARCH_Address = "CITY_SEARCH_Address"
+const List_Address = "List_Address"
+
 
 
 
@@ -15,5 +17,6 @@ export {
     HOME_PAGE_HOT,
     HOME_PAGE_GROUP,
     CITY_SEARCH_MESSAGE,
-    CITY_SEARCH_Address
+    CITY_SEARCH_Address,
+    List_Address
 }
