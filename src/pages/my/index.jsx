@@ -6,20 +6,29 @@ import { connect } from "react-redux";
 
 function Index(props) {
   const { user } = props;
-  console.log(user)
-  const [str,setstr]=React.useState("")
+  const [str, setstr] = React.useState("登陆/注册");
 
-  React.useEffect(()=>{
-    if(localStorage.getItem("user_id")){
-      
-      setstr(user.username)
-    }else{
-      setstr("登陆/注册")
+  React.useEffect(() => {
+    if (
+      localStorage.getItem("user_id") &&
+      user.username !== undefined &&
+      localStorage.getItem("modify")
+    ) {
+      let a = localStorage.getItem("modify");
+      setstr(a);
+    } else if (localStorage.getItem("user_id") && user.username !== undefined) {
+      setstr(user.username);
+    } else {
+      setstr("登陆/注册");
     }
-  },[])
+  }, []);
 
   const loginfun = () => {
-    props.history.push("/login");
+    if (user.username !== undefined) {
+      props.history.push("/myuser");
+    } else {
+      props.history.push("/login");
+    }
   };
 
   return (
@@ -36,7 +45,7 @@ function Index(props) {
             <img src="" alt="" />
           </div>
           <div>
-        <p>{str}</p>
+            <p>{str}</p>
             <p>
               <span className="iconfont icon-phone"></span>暂无绑定手机号
             </p>

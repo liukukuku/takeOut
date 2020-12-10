@@ -2,8 +2,9 @@ import React from "react";
 import HeadTitle from "@/components/HeadTitle";
 import FootRoute from "@/components/FootRoute";
 import Swiper from '@/components/takeOutSwiper'
-
-function Index() {
+// import { Button } from 'antd-mobile';
+// import qs from 'qs'
+function Index(props) {
   return (
     <div>
       <HeadTitle></HeadTitle>
