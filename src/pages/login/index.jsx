@@ -8,6 +8,7 @@ import { loginfun } from "@/actions/login";
 
 function Index(props) {
   const { obj } = props;
+  console.log(obj)
 
   React.useEffect(() => {
     props.loginyzfun();
