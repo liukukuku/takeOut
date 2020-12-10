@@ -9,7 +9,14 @@ function Index(props) {
   const [str, setstr] = React.useState("登陆/注册");
 
   React.useEffect(() => {
-    if (localStorage.getItem("user_id") && user.username !== undefined) {
+    if (
+      localStorage.getItem("user_id") &&
+      user.username !== undefined &&
+      localStorage.getItem("modify")
+    ) {
+      let a = localStorage.getItem("modify");
+      setstr(a);
+    } else if (localStorage.getItem("user_id") && user.username !== undefined) {
       setstr(user.username);
     } else {
       setstr("登陆/注册");
@@ -17,7 +24,11 @@ function Index(props) {
   }, []);
 
   const loginfun = () => {
-    props.history.push("/login");
+    if (user.username !== undefined) {
+      props.history.push("/myuser");
+    } else {
+      props.history.push("/login");
+    }
   };
 
   return (

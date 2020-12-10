@@ -4,4 +4,5 @@ export default {
   Getrestaurantsurl: "https://elm.cangdu.org/shopping/restaurants", //获取商铺列表
   loginyz: "/xxx/v1/captchas", //获取验证码
   login: "/xxx/v2/login", //登陆
+  changepassword: "/xxx/v2/changepassword", //重置密码
 };

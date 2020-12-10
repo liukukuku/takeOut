@@ -5,6 +5,10 @@ const Search = Loadable(() => import('@/pages/search'))
 const Takeout = Loadable(() => import('@/pages/takeOut'))
 const HomePage = Loadable(() => import('@/pages/homePage'))
 const Login = Loadable(() => import('@/pages/login'))
+const Myuser = Loadable(() => import('@/pages/myuser'))
+const Modifyuser = Loadable(() => import('@/pages/modifyuser'))
+const Editaddress = Loadable(() => import('@/pages/editaddress'))
+const Changepassword = Loadable(() => import('@/pages/changepassword'))
 
 export {
   My,
@@ -12,5 +16,9 @@ export {
   Search,
   Takeout,
   HomePage,
-  Login
+  Login,
+  Myuser,
+  Modifyuser,
+  Editaddress,
+  Changepassword
 }
