@@ -29,7 +29,7 @@ function SearchCity(props) {
   useEffect(() => {
     let arr = JSON.parse(localStorage.getItem("arr"));
     setList(arr);
-    setisBool(false);
+    
     //    console.log(props)
     let idFn = props.location.search.substr(1);
     props.SearchMes(idFn);
@@ -58,12 +58,16 @@ function SearchCity(props) {
 
   let arr = [];
   const souSuo = (val) => {
-    console.log(val);
-    arr.push(val);
+
+    localStorage.getItem("arr");
 
     console.log(arr);
+    // console.log(val);
+    arr.push(val);
+
 
     localStorage.setItem("arr", JSON.stringify(arr));
+    // props.history.push("/takeout")
   };
   return (
     <div className="wrap">
@@ -105,7 +109,8 @@ function SearchCity(props) {
 
         <div className="nullfn" style={{ display: isBool ? "none" : "block" }}>
           <div className="city_jilu">
-            {list.length &&
+            {/* {
+            list.length &&
               list.map((v, i) => {
                 return (
                   <p key={i}>
@@ -113,7 +118,7 @@ function SearchCity(props) {
                     <text>{v.address}</text>
                   </p>
                 );
-              })}
+              })} */}
           </div>
           <div>
             <span>清空所有</span>
