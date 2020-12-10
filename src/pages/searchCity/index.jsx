@@ -6,7 +6,6 @@ import { SearchMes } from "@/actions/Urban_information_H";
 import { SearchAdd } from "@/actions/searchAddress_H";
 import { ListAddress } from "@/actions/list_address_H";
 
-
 export default connect(
   (state) => {
     console.log(state);
@@ -54,10 +53,6 @@ function SearchCity(props) {
       );
 
       setisBool(true);
-      // 判断是否有搜索数据
-      // if (props.souval.length !== 0) {
-      //   setisBool(true);
-      // }
     }
   };
 
@@ -75,7 +70,7 @@ function SearchCity(props) {
     brr.push(val)
 
     localStorage.setItem("arr", JSON.stringify(brr));
-    // console.log(val)
+    
     props.ListAddress(val)
     props.history.push("/takeout?");
   };
