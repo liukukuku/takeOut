@@ -1,5 +1,4 @@
 import axios from 'axios'
-import qs from 'qs'
 
 // axios.defaults.withCredentials = true;
 // url 是请求的服务器地址

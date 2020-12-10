@@ -1,7 +1,6 @@
-import React,{useState} from 'react'
+import React from 'react'
 import './styles.less'
 function Index() {
-    const {flag,setFlag} = useState(true)
     function ClassName(even) {
         even.currentTarget.children[0].className="list"
     }

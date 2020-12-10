@@ -28,7 +28,6 @@ export class index extends Component {
     this.setState({
       obj: obj,
     });
-    console.log(obj);
     new Swiper(".swiper-container", {
       loop: true, //无缝轮播
       pagination: {
