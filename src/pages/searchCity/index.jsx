@@ -27,47 +27,61 @@ function SearchCity(props) {
 
   //   默认请求数据
   useEffect(() => {
-    let arr = JSON.parse(localStorage.getItem("arr"));
-    setList(arr);
-    
-    //    console.log(props)
+    if (localStorage.getItem("arr")) {
+      let arr = JSON.parse(localStorage.getItem("arr"));
+      setList(arr);
+    }
+
     let idFn = props.location.search.substr(1);
     props.SearchMes(idFn);
   }, []);
 
-  let [isBool, setisBool] = React.useState(false);
+  // 定义一个bool变量
+  const [isBool, setisBool] = React.useState(false);
 
   // 搜索提交事件
   const submitTo = () => {
     let zhi = document.querySelector(".zhi") || "";
 
-    if(zhi.value){
-        let idFn = props.location.search.substr(1);
-        // console.log("?city_id="+idFn+"&keyword="+zhi.value+"&type=search")
-        props.SearchAdd(
-          "?city_id=" + idFn + "&keyword=" + zhi.value + "&type=search"
-        );
-    
-        // 判断是否有搜索数据
-        if (props.souval.length !== 0) {
-          setisBool(true);
-        }
+    if (zhi.value) {
+      let idFn = props.location.search.substr(1);
+      // console.log("?city_id="+idFn+"&keyword="+zhi.value+"&type=search")
+      props.SearchAdd(
+        "?city_id=" + idFn + "&keyword=" + zhi.value + "&type=search"
+      );
+
+      setisBool(true);
+      // 判断是否有搜索数据
+      // if (props.souval.length !== 0) {
+      //   setisBool(true);
+      // }
     }
-   
   };
 
   let arr = [];
   const souSuo = (val) => {
+    // 判断本地存储是否为空
+    if (localStorage.getItem("arr")) {
+      // 取上一次值
+      arr = JSON.parse(localStorage.getItem("arr"));
+    }
 
-    localStorage.getItem("arr");
+    // push点击数据
 
-    console.log(arr);
-    // console.log(val);
-    arr.push(val);
+    let brr = arr.filter(v=>{
+      return v.name !== val.name
+    })
+    brr.push(val)
 
+    localStorage.setItem("arr", JSON.stringify(brr));
+    props.history.push("/takeout");
+  };
 
-    localStorage.setItem("arr", JSON.stringify(arr));
-    // props.history.push("/takeout")
+  // 清空历史记录
+  const btnKong = () => {
+    localStorage.removeItem("arr");
+    setList([]);
+    setisBool(false);
   };
   return (
     <div className="wrap">
@@ -90,38 +104,39 @@ function SearchCity(props) {
           />
           <button onClick={submitTo}>提交</button>
         </div>
-        <p>搜索历史</p>
+        <p style={{ display: isBool ? "none" : "block" }}>搜索历史</p>
 
+        {/* 第一个 */}
         <div
           className="city_jilu"
           style={{ display: isBool ? "block" : "none" }}
         >
-          {props.souval.length &&
-            props.souval.map((v, i) => {
-              return (
-                <p key={i} onClick={() => souSuo(v)}>
-                  <span>{v.name}</span>
-                  <text>{v.address}</text>
-                </p>
-              );
-            })}
-        </div>
-
-        <div className="nullfn" style={{ display: isBool ? "none" : "block" }}>
-          <div className="city_jilu">
-            {/* {
-            list.length &&
-              list.map((v, i) => {
+          {props.souval.length
+            ? props.souval.map((v, i) => {
                 return (
-                  <p key={i}>
+                  <p key={i} onClick={() => souSuo(v)}>
                     <span>{v.name}</span>
                     <text>{v.address}</text>
                   </p>
                 );
-              })} */}
+              })
+            : "搜索地址不存在"}
+        </div>
+        {/* 第二个 */}
+        <div className="nullfn" style={{ display: isBool ? "none" : "block" }}>
+          <div className="city_jilu">
+            {list &&
+              list.map((v, i) => {
+                return (
+                  <p key={i} onClick={() => souSuo(v)}>
+                    <span>{v.name}</span>
+                    <text>{v.address}</text>
+                  </p>
+                );
+              })}
           </div>
           <div>
-            <span>清空所有</span>
+            <span onClick={btnKong}>清空所有</span>
           </div>
         </div>
       </section>
