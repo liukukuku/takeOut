@@ -21,7 +21,7 @@ export default (state = initialState, { type, payload }) => {
 
     case HOME_PAGE_GROUP:
       var crr = []
-      if (payload.data.length != 0) {
+      if (payload.data.length !== 0) {
         for (var i in payload.data) {
           let arr = {}
           arr.name = i

@@ -1,7 +1,7 @@
 import React from "react";
 import HeadTitle from "@/components/HeadTitle";
-import "@/pages/login/styles.less";
-import { Form, Input, Button, Checkbox } from "antd";
+import "./styles.less";
+import { Form, Input, Button, } from "antd";
 
 function Index(props) {
   const onFinish = (values) => {

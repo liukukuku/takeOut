@@ -4,7 +4,7 @@ import "swiper/css/swiper.css";
 import { connect } from "react-redux";
 import { Getentry } from "@/actions/Actions_getentry";
 import { NavLink } from "react-router-dom";
-import { Button } from "antd";
+
 import "./style.less";
 export class index extends Component {
   state = {
