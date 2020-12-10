@@ -41,6 +41,12 @@ function HomePage(props) {
     props.HomePgs1(str1);
     props.HomePgs2(str2);
   }, []);
+  
+
+  const cityGo = (val) => {
+    // console.log(val)
+    props.history.push("/searchCity?"+val.id)
+  }
   return (
     <div className="wrap">
       <header>
@@ -54,14 +60,16 @@ function HomePage(props) {
         <p>定位不准时，请在城市列表选择</p>
       </div>
       {/* 定位城市 */}
-      <div className="home_city">{props.val.name}</div>
+      <div className="home_city" 
+        onClick={()=>cityGo(props.val)
+      }>{props.val.name}</div>
       {/* 热门城市 */}
       <div className="home_city_hot">
         <p>热门城市</p>
         <div>
           {props.val1.length &&
             props.val1.map((v, i) => {
-              return <p key={v.id}> {v.name}</p>;
+              return <p key={v.id} onClick={()=>cityGo(v)}> {v.name}</p>;
             })}
         </div>
       </div>
@@ -74,7 +82,7 @@ function HomePage(props) {
                 <p className="ying">{v.name}</p>
                 <div>
                   {v.data.map((j, k) => {
-                    return <p key={j.id}>{j.name}</p>;
+                    return <p onClick={()=>cityGo(j)} key={j.id}>{j.name}</p>;
                   })}
                 </div>
               </div>

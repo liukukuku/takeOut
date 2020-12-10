@@ -8,6 +8,11 @@ body,html,#root{
     height: 100%;
     background: #eee;
 }
+.wrap{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
 .HeadTitle{
     width: 100%;
     padding: 0.2rem 0;
@@ -57,13 +62,30 @@ body,html,#root{
     width: 100%;
     background: white;
     border-top: 0.02rem solid #ccc;
+    p{
+        display: flex;
+        flex-direction: column;
+        border-top: 0.02rem solid #ccc;
+        padding-left: 0.3rem;
+        line-height: 0.5rem;
+        span{
+            font-weight: bold;
+        }
+    }
 }
 .nullfn{
     width: 100%;
-    height: 0.6rem;
+    height: 1.6rem;
     background: white;
     display: flex;
     justify-content: center;
     align-items: center;
     border-top: 0.02rem solid #ccc;
+    flex-direction: column;
+    div{
+        width: 100%;
+        text-align: center;
+        line-height: 0.8rem;
+        border-top: 0.01rem solid #ccc;
+    }
 }
