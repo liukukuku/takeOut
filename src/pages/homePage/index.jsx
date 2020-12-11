@@ -5,6 +5,7 @@ import { HomePgs, HomePgs1, HomePgs2 } from "@/actions/homePg";
 import HeadTitle from "@/components/HeadTitle";
 
 import "./styles.less";
+import Axios from "axios";
 
 export default connect(
   (state) => {
@@ -48,6 +49,8 @@ function HomePage(props) {
     localStorage.setItem("Id",val.id)
     props.history.push("/searchCity?"+val.id)
   }
+
+
   return (
     <div className="wrap">
       <header>
