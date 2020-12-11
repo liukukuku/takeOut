@@ -21,16 +21,34 @@ export default connect(
 )(Search);
 
 function Search(props) {
-  const btnTi = () => {
-    let inputVal = document.querySelector(".inputVal");
-    console.log(inputVal.value);
-    console.log(props.citygeohash);
 
+const [isBool, setisBool] = React.useState(true);
+const [isvalue, setisvalue] = React.useState('');
+
+  const btnTi = () => {
+    //   叉叉的隐藏
+    setisBool(true)
+    // console.log(isvalue)
+    console.log(props.citygeohash);
+    // console.log("geohash=" + props.citygeohash + "&keyword=" + isvalue)
     props.Searchshops(
-      "geohash=" + props.citygeohash + "&keyword=" + inputVal.value
+      "geohash="+props.citygeohash+"&keyword="+isvalue
     );
   };
-//   console.log(props.list)
+
+
+  const onChange = (e) => {
+    setisvalue(e.target.value)
+    //  叉叉的显示
+    setisBool(false)
+  }
+  const onFocus = () => {
+    setisBool(false)
+  }
+  const onBlur = () => {
+    setisBool(false)
+  }
+  console.log(props.list)
   return (
     <div>
       <HeadTitle val={"搜索"}></HeadTitle>
@@ -39,18 +57,23 @@ function Search(props) {
           <Input
             type="text"
             placeholder="请输入商家或美食名称"
-            className="inputVal"
+            value={isvalue}
+            onFocus={onFocus}
+            onBlur={onBlur}
+            onChange={onChange}
           />
+          <h1 style={{ display: isBool ? "none" : "block" }}>×</h1>
           <Button type="primary" onClick={btnTi}>
             提交
           </Button>
         </div>
         <div className="Slist">{
+            props.list.length?
          props.list.map((v, i) => {
               return (
               <dl key={v.id}>
                 <dt>
-                  <img src = "//elm.cangdu.org/img/16831f7eda025299.jpg" />
+                  <img src = {"//elm.cangdu.org/img/"+v.image_path} />
                 </dt>
                 <dd>
                   <p>{v.name}</p>
@@ -62,6 +85,7 @@ function Search(props) {
               </dl>
               )
             })
+            :<div className="ooo">很抱歉！无搜索结果</div>
         }
         </div>
       </section>

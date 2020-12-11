@@ -100,7 +100,7 @@ function SearchCity(props) {
             className="zhi"
             required
           />
-          <button onClick={submitTo}>提交</button>
+          <button onClick={submitTo} >提交</button>
         </div>
         <p style={{ display: isBool ? "none" : "block" }}>搜索历史</p>
 
