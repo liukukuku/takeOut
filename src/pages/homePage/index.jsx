@@ -8,7 +8,7 @@ import "./styles.less";
 
 export default connect(
   (state) => {
-    // console.log(state);
+    console.log(state);
     return {
       val: state.home.val,
       val1: state.home.val1,
@@ -45,6 +45,7 @@ function HomePage(props) {
 
   const cityGo = (val) => {
     // console.log(val)
+    localStorage.setItem("Id",val.id)
     props.history.push("/searchCity?"+val.id)
   }
   return (

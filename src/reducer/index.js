@@ -7,6 +7,8 @@ import searchAddress from '@/reducer/searchAddress'
 import Loginyz from "@/reducer/loginyz";
 import Login from "@/reducer/login";
 import List_Address from "@/reducer/List_Address";
+import searchShop from "@/reducer/searchShop";
+
 
 
 export default {
@@ -18,5 +20,6 @@ export default {
   searchAddress,
   Loginyz,
   Login,
-  List_Address
+  List_Address,
+  searchShop
 }

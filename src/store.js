@@ -12,7 +12,7 @@ const rootPersistConfig = {
   key: 'root',
   storage: sessionStorage,
   stateReconciler: autoMergeLevel2,
-  whitelist: ['Reducer_getrestaurants','Login'], // 白名单
+  whitelist: ['Reducer_getrestaurants','Login',"List_Address"], // 白名单
 }
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose

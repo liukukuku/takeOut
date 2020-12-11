@@ -7,6 +7,8 @@ const NEARBYMERCHANT = "NEARBYMERCHANT"
 const CITY_SEARCH_MESSAGE = "CITY_SEARCH_MESSAGE"
 const CITY_SEARCH_Address = "CITY_SEARCH_Address"
 const List_Address = "List_Address"
+const SEARCH_SHOPS = "SEARCH_SHOPS"
+
 
 
 
@@ -20,5 +22,6 @@ export {
     NEARBYMERCHANT,
     CITY_SEARCH_MESSAGE,
     CITY_SEARCH_Address,
-    List_Address
+    List_Address,
+    SEARCH_SHOPS
 }
