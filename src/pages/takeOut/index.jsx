@@ -4,8 +4,20 @@ import FootRoute from "@/components/FootRoute";
 import Swiper from "@/components/TakeOutSwiper";
 import NearbyMerchant from "@/components/NearbyMerchant";
 import './styles.less'
+import { connect } from "react-redux";
 
+
+
+export default 
+connect(state=>{
+  // console.log(state)
+},{
+
+})
+
+(Index)
 function Index(props) {
+  
   return (
     <div>
       <HeadTitle></HeadTitle>
@@ -18,4 +30,3 @@ function Index(props) {
   );
 }
 
-export default Index;
