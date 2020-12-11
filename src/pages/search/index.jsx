@@ -31,9 +31,7 @@ const [isvalue, setisvalue] = React.useState('');
     // console.log(isvalue)
     console.log(props.citygeohash);
     // console.log("geohash=" + props.citygeohash + "&keyword=" + isvalue)
-    props.Searchshops(
-      "geohash="+props.citygeohash+"&keyword="+isvalue
-    );
+    props.Searchshops("geohash="+props.citygeohash+"&keyword="+isvalue);
   };
 
 
