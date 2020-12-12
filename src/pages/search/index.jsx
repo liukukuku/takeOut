@@ -46,7 +46,7 @@ const [isvalue, setisvalue] = React.useState('');
   const onBlur = () => {
     setisBool(false)
   }
-  console.log(props.list)
+  // console.log(props.list)
   return (
     <div>
       <HeadTitle val={"搜索"}></HeadTitle>
