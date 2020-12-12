@@ -47,6 +47,12 @@ const [isvalue, setisvalue] = React.useState('');
     setisBool(false)
   }
   // console.log(props.list)
+
+  // 点击 × 清空
+  const chaClick = () => {
+    setisvalue('')
+    
+  }
   return (
     <div>
       <HeadTitle val={"搜索"}></HeadTitle>
@@ -60,7 +66,7 @@ const [isvalue, setisvalue] = React.useState('');
             onBlur={onBlur}
             onChange={onChange}
           />
-          <h1 style={{ display: isBool ? "none" : "block" }}>×</h1>
+          <h1 style={{ display: isBool ? "none" : "block" }} onClick={chaClick}>×</h1>
           <Button type="primary" onClick={btnTi}>
             提交
           </Button>
