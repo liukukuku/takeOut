@@ -5,11 +5,10 @@ import {
 import { get } from '@/utils/request'
 import api from '@/services/api'
 
-export function Searchshops(str) {
-    // console.log(api.Searchshops+"?"+str)
-    // console.log(api.Searchshops+"?"+str)
+export function ShopList(str) {
+    console.log(str)
     return {
         type:SEARCH_SHOPS,
-        payload: get(api.Searchshops+"?"+str)
+        payload: ''
     }
 }

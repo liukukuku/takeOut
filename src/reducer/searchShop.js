@@ -9,7 +9,7 @@ export default (state = initialState, { type, payload }) => {
     switch (type) {
 
     case SEARCH_SHOPS:
-        console.log(payload)
+        // console.log(payload)
         return { ...state, list:payload.data }
 
     default:
