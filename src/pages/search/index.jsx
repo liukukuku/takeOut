@@ -8,6 +8,7 @@ import { connect } from "react-redux";
 import { Searchshops } from "@/actions/searchShops_H";
 import { ShopList } from "@/actions/shopList_H";
 
+import qs from 'qs'
 
 export default connect(
   (state) => {
@@ -25,7 +26,7 @@ export default connect(
 
 function Search(props) {
   // 叉是否隐藏变量
-  const [isBool, setisBool] = React.useState(true);
+  const [isBool, setisBool] = React.useState(false);
 
   const [isvalue, setisvalue] = React.useState("");
 
@@ -59,10 +60,10 @@ function Search(props) {
     // setisBool(false)
   };
   const onFocus = () => {
-    setisBool(false);
+    setismes(false);
   };
   const onBlur = () => {
-    setisBool(true);
+    setismes(true);
   };
   // console.log(props.list)
 
@@ -95,14 +96,14 @@ function Search(props) {
   // console.log(ismes)
 
   const chahidden = (val) => {
-    console.log(val);
-    console.log(datas);
+    // console.log(val);
+    // console.log(datas);
     for (var i = 0; i < datas.length; i++) {
       if (i === val) {
         datas.splice(i, 1);
       }
     }
-    console.log(datas);
+    // console.log(datas);
     setdatas([...datas]);
     localStorage.setItem("footfn", JSON.stringify(datas));
   };
@@ -117,9 +118,15 @@ function Search(props) {
 
 
   const nextList = (val) => {
-    console.log(val)
-    console.log(val.longitude)
-    console.log(val.latitude)
+    localStorage.setItem("dataOne",qs.stringify(val))
+    props.history.push("/footList?"+ qs.stringify({id:val.id}))
+    // console.log(props)
+    // 本条数据
+    // console.log(val)
+    // 经度
+    // console.log(val.longitude)
+    // 纬度
+    // console.log(val.latitude)
 
   }
   return (
@@ -135,7 +142,7 @@ function Search(props) {
             onBlur={onBlur}
             onChange={onChange}
           />
-          <h1 onClick={chaClicks}>×</h1>
+          <h1 onClick={chaClicks} >×</h1>
           <Button type="primary" onClick={btnTi}>
             提交
           </Button>

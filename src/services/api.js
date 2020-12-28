@@ -6,6 +6,7 @@ export default {
   SearchAddress: "https://elm.cangdu.org/v1/pois",
   loginyz: "/xxx/v1/captchas", //获取验证码
   login: "/xxx/v2/login", //登陆
-  Searchshops:"https://elm.cangdu.org/v4/restaurants"  //搜索商店7
+  Searchshops:"https://elm.cangdu.org/v4/restaurants",  //搜索商店7
+  SearchFootList:"https://elm.cangdu.org/shopping/v2/menu",  //获取食品列表
 }
 

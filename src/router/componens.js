@@ -8,6 +8,8 @@ const Login = Loadable(() => import('@/pages/login'))
 const Restaurants = Loadable(() => import('@/pages/restaurants'))
 const SearchCity = Loadable(() => import('@/pages/searchCity'))
 const Myuser = Loadable(() => import('@/pages/myuser'))
+const FootList = Loadable(() => import('@/pages/footList'))
+
 
 export {
   My,
@@ -18,5 +20,6 @@ export {
   Login,
   Restaurants,
   SearchCity,
-  Myuser
+  Myuser,
+  FootList
 }

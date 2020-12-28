@@ -10,6 +10,7 @@ import {
   Restaurants,
   SearchCity,
   Myuser,
+  FootList
 } from "@/router/componens";
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 
@@ -22,6 +23,7 @@ export default function Router() {
         <Route path="/homePage" component={HomePage}></Route>
         <Route path="/takeout" component={Takeout}></Route>
         <Route path="/search" component={Search}></Route>
+        <Route path="/footList" component={FootList}></Route>
         <Route path="/restaurants/:id" component={Restaurants}></Route>
         <Route path="/myuser" component={Myuser}></Route>
         <Route path="/login" component={Login}></Route>
