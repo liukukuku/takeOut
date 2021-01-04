@@ -29,10 +29,8 @@ function Search(props) {
   const [isBool, setisBool] = React.useState(false);
 
   const [isvalue, setisvalue] = React.useState("");
-
   // 定义一个bool变量
   const [ismes, setismes] = React.useState(false);
-
   // 本地存储 历史记录
   let [datas, setdatas] = React.useState([]);
 
@@ -49,31 +47,12 @@ function Search(props) {
 
   // 提交按钮
   const btnTi = () => {
+
     // 切换
     setismes(true);
     props.Searchshops("geohash=" + props.citygeohash + "&keyword=" + isvalue);
-  };
 
-  const onChange = (e) => {
-    setisvalue(e.target.value);
-    //  叉叉的显示
-    // setisBool(false)
-  };
-  const onFocus = () => {
-    setismes(false);
-  };
-  const onBlur = () => {
-    setismes(true);
-  };
-  // console.log(props.list)
-
-  // 点击 × 清空
-  let footfn = [];
-  const chaClicks = () => {
-    // 点击×切换
-    setismes(false);
-    setisvalue("");
-    // console.log(isvalue)
+    // 点击搜索，添加搜索内容为搜索记录
     if (localStorage.getItem("footfn")) {
       // 取上一次值
       footfn = JSON.parse(localStorage.getItem("footfn"));
@@ -86,6 +65,23 @@ function Search(props) {
 
     localStorage.setItem("footfn", JSON.stringify(nfootfn));
     auto();
+    
+  };
+
+  const onChange = (e) => {
+    setisvalue(e.target.value);
+    //  叉叉的显示
+    // setisBool(false)
+  };
+
+  // 点击 × 清空
+  let footfn = [];
+  const chaClicks = () => {
+    // 点击×切换
+    setismes(false);
+    setisvalue("");
+    // console.log(isvalue)
+   
   };
 
   // 清空历史记录
@@ -95,9 +91,9 @@ function Search(props) {
   };
   // console.log(ismes)
 
+  console.log(datas);
   const chahidden = (val) => {
     // console.log(val);
-    // console.log(datas);
     for (var i = 0; i < datas.length; i++) {
       if (i === val) {
         datas.splice(i, 1);
@@ -118,6 +114,7 @@ function Search(props) {
 
 
   const nextList = (val) => {
+    // console.log(val)
     localStorage.setItem("dataOne",qs.stringify(val))
     props.history.push("/footList?"+ qs.stringify({id:val.id}))
     // console.log(props)
@@ -138,8 +135,6 @@ function Search(props) {
             type="text"
             placeholder="请输入商家或美食名称"
             value={isvalue}
-            onFocus={onFocus}
-            onBlur={onBlur}
             onChange={onChange}
           />
           <h1 onClick={chaClicks} >×</h1>
@@ -176,10 +171,11 @@ function Search(props) {
             {datas &&
               datas.map((v, i) => {
                 return (
-                  <div>
+                  <div key = {i}>
                   <p key = {i} onClick={(e) => againclick(e)}>
                       {v}
-                  </p><span onClick={() => chahidden(i)}>×</span>
+                  </p><span onClick={() => 
+                    chahidden(i)}>×</span>
                   </div>
                 );
               })}
